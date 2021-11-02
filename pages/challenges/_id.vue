@@ -1,9 +1,39 @@
 <template>
-  <div v-if="challenge">
+  <div
+    v-if="challenge"
+    class="d-flex flex-column align-center"
+  >
+    <v-avatar
+      size="64"
+      color="primary lighten-3"
+      class="my-6"
+    >
+      R
+    </v-avatar>
+
     <h1>{{ challenge.title }}</h1>
-    <div>
+
+    <div class="text-center my-2">
       <p>{{ challenge.description }}</p>
     </div>
+
+    <div>
+      <ChallengeCompleteModal
+        :challenge="challenge.id"
+      />
+    </div>
+
+    <div class="mt-12">
+      <h2 class="text-center">
+        ¿Quienes lo han hecho?
+      </h2>
+
+      <EmptyState
+        title="Nadie ha completado aún este reto"
+        description="¡Atrévete a ser el primero!"
+      />
+    </div>
+
   </div>
 
   <div v-else>
