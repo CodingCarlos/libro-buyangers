@@ -66,7 +66,7 @@
           <v-btn
             color="primary"
             nuxt
-            to="/inspire"
+            to="/challenges"
           >
             Continue
           </v-btn>
