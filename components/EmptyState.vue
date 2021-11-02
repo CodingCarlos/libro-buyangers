@@ -1,6 +1,6 @@
 <template>
   <div
-    class="d-flex flex-column align-center"
+    class="d-flex flex-column align-center text-center"
   >
     <v-icon :size="iconSize" class="my-4">
       {{ icon }}

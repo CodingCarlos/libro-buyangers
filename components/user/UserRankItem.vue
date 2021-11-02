@@ -11,7 +11,7 @@
       <v-list-item-content>
         <v-list-item-title v-text="user.name"></v-list-item-title>
         <v-list-item-subtitle>
-          24 retos
+          {{ user.challenges_count }} retos
         </v-list-item-subtitle>
       </v-list-item-content>
 

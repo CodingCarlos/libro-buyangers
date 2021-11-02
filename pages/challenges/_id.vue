@@ -7,7 +7,10 @@
   </div>
 
   <div v-else>
-    Error! No existe el reto :(
+    <EmptyState
+      title="No encontramos el reto"
+      description="Parece que el reto que buscas ha dejado de existir, o nunca ha existido"
+    />
   </div>
 </template>
 

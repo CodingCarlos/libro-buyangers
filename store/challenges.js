@@ -29,10 +29,15 @@ export const actions = {
   async get ({ commit }, id) {
     const ref = doc(this.$firebase.db, COLLECTION, id)
     try {
-      const result = await getDoc(ref)
+      let result = await getDoc(ref)
+      result = result.data()
+      if (!result) {
+        return null
+      }
+
       const data = {
         id,
-        ...result.data()
+        ...result
       }
       commit('SET_ITEM', data)
       return data
