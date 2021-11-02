@@ -86,5 +86,12 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  // To ensure Netlify can deploy the site
+  target: 'static',
+
+  generate: {
+    fallback: true
   }
 }
