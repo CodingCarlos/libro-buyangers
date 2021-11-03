@@ -29,11 +29,21 @@
       </h2>
 
       <EmptyState
+        v-if="challenge.completed_count === 0"
         title="Nadie ha completado aún este reto"
         description="¡Atrévete a ser el primero!"
       />
+      <div v-else>
+        <ChallengeCompletedCard
+          v-for="(val, key) in completed"
+          :key="key"
+          :challenge="id"
+          :user="val.id"
+          :comment="val.comment"
+          class="my-4"
+        />
+      </div>
     </div>
-
   </div>
 
   <div v-else>
@@ -48,21 +58,28 @@
 export default {
   name: 'IndexPage',
   layout: 'defaultBack',
+  async fetch () {
+    // Bring the stored challenge by id
+    const challenge = this.$store.getters['challenges/getById'](this.id)
+    this.$store.dispatch('complete/list', {
+      id: this.id,
+      col: 'challenges'
+    })
+
+    // If not challenge already stored, try to get it back
+    if (!challenge) {
+      await this.$store.dispatch('challenges/get', this.id)
+    }
+  },
   computed: {
     id () {
       return this.$route.params.id || null
     },
     challenge () {
       return this.$store.getters['challenges/getById'](this.id)
-    }
-  },
-  async fetch () {
-    // Bring the stored challenge by id
-    const challenge = this.$store.getters['challenges/getById'](this.id)
-
-    // If not challenge already stored, try to get it back
-    if (!challenge) {
-      await this.$store.dispatch('challenges/get', this.id)
+    },
+    completed () {
+      return this.$store.state.complete.challenges[this.id]
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <div :class="{ 'primary lighten-4 rounded': selected}">
     <v-list-item
-      @click="1==1"
       class="py-1"
+      @click="1==1"
     >
       <v-list-item-avatar>
-        <v-img :src="user.pic"></v-img>
+        <v-img :src="user.pic" />
       </v-list-item-avatar>
 
       <v-list-item-content>

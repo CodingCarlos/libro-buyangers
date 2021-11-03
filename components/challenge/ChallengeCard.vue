@@ -4,15 +4,17 @@
     <v-card-text>
       <v-list-item>
         <v-list-item-avatar>
-          <v-avatar color="primary lighten-3">R</v-avatar>
+          <v-avatar color="primary lighten-3">
+            R
+          </v-avatar>
           <!-- <v-img :src="challenge.icon"></v-img> -->
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title v-html="challenge.title"></v-list-item-title>
-          <v-list-item-subtitle v-html="challenge.description"></v-list-item-subtitle>
+          <v-list-item-title v-html="challenge.title" />
+          <v-list-item-subtitle v-html="challenge.description" />
 
-<!--           <div class="mt-2">
+          <!--           <div class="mt-2">
             <v-chip
               color="primary"
               small

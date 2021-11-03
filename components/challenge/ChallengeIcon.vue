@@ -4,7 +4,7 @@
       v-if="img"
       :src="img"
     />
-    <v-avatar color="primary lighten-4" v-else>
+    <v-avatar v-else color="primary lighten-4">
       A
     </v-avatar>
   </div>

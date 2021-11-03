@@ -1,5 +1,10 @@
 <template>
-  <div>En construcción</div>
+  <div>
+    <h1>El Gran Libro de Retos Buyanger</h1>
+    <p>
+      Cargando...
+    </p>
+  </div>
 </template>
 
 <script>

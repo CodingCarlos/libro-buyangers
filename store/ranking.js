@@ -1,5 +1,5 @@
 // import { collection, query, getDocs, doc, getDoc } from 'firebase/firestore'
-import { collection, query, getDocs } from 'firebase/firestore'
+import { collection, query, orderBy, getDocs } from 'firebase/firestore'
 
 const COLLECTION = 'users'
 
@@ -14,7 +14,7 @@ export const getters = {
 
 export const actions = {
   async list ({ commit }) {
-    const q = query(collection(this.$firebase.db, COLLECTION))
+    const q = query(collection(this.$firebase.db, COLLECTION), orderBy('challenges_count', 'desc'))
 
     const listItems = []
     const querySnapshot = await getDocs(q)

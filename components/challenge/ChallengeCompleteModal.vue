@@ -3,7 +3,7 @@
     v-model="dialog"
     width="500"
   >
-    <template v-slot:activator="{ on, attrs }">
+    <template #activator="{ on, attrs }">
       <v-btn
         rounded
         x-large
@@ -31,17 +31,18 @@
         />
 
         <v-text-field
-         multiple
-         auto-grow
-         outlined
-         placeholder="Puedes incluir un comentario público"
+          v-model="comment"
+          multiple
+          auto-grow
+          outlined
+          placeholder="Puedes incluir un comentario público"
         />
       </v-card-text>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-card-actions>
-        <v-spacer></v-spacer>
+        <v-spacer />
         <v-btn
           text
           @click="dialog = false"
@@ -50,7 +51,7 @@
         </v-btn>
         <v-btn
           color="primary"
-          @click="dialog = false"
+          @click="complete()"
         >
           Completar
         </v-btn>
@@ -69,7 +70,18 @@ export default {
     }
   },
   data: () => ({
-    dialog: false
-  })
+    dialog: false,
+    comment: ''
+  }),
+  methods: {
+    async complete () {
+      await this.$store.dispatch('complete/challenge', {
+        id: this.challenge,
+        comment: this.comment
+      })
+
+      this.dialog = false
+    }
+  }
 }
 </script>

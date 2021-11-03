@@ -1,22 +1,24 @@
 <template>
   <div>
-    <h1 class="my-2">Retos</h1>
+    <h1 class="my-2">
+      Retos
+    </h1>
     <div>
       <v-text-field
+        v-model="searchTerm"
         outlined
         dense
         clearable
         prepend-inner-icon="mdi-magnify"
         placeholder="Buscar retos"
-        v-model="searchTerm"
       />
     </div>
     <div>
-        <!-- v-for="challenge in $store.state.challenges.list" -->
+      <!-- v-for="challenge in $store.state.challenges.list" -->
       <ChallengeCard
         v-for="challenge in filteredList"
-        :key="challenge.id"
         :id="challenge.id"
+        :key="challenge.id"
         class="my-2"
       />
 
@@ -56,6 +58,9 @@ export default {
   data: () => ({
     searchTerm: ''
   }),
+  async fetch () {
+    await this.$store.dispatch('challenges/list')
+  },
   computed: {
     searchQuery () {
       return normalizeSearch(this.searchTerm)
@@ -72,9 +77,6 @@ export default {
         return title.includes(this.searchQuery) || description.includes(this.searchQuery)
       })
     }
-  },
-  async fetch () {
-    await this.$store.dispatch('challenges/list')
   }
 }
 </script>

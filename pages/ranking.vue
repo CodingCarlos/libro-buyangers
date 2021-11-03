@@ -8,8 +8,8 @@
 
     <UserRankItem
       v-for="user in $store.state.ranking.list"
-      :key="user.id"
       :id="user.id"
+      :key="user.id"
       :selected="user.id === $store.state.auth.id"
     />
   </div>
