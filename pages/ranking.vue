@@ -18,6 +18,7 @@
 <script>
 export default {
   name: 'RankingPage',
+  middleware: 'auth',
   async fetch () {
     await this.$store.dispatch('ranking/list')
   }

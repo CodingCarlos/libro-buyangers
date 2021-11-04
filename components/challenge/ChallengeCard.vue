@@ -11,8 +11,12 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title v-html="challenge.title" />
-          <v-list-item-subtitle v-html="challenge.description" />
+          <v-list-item-title>
+            {{ challenge.title }}
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            {{ challenge.description }}
+          </v-list-item-subtitle>
 
           <!--           <div class="mt-2">
             <v-chip

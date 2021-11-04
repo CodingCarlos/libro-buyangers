@@ -58,6 +58,7 @@
 export default {
   name: 'IndexPage',
   layout: 'defaultBack',
+  middleware: 'auth',
   async fetch () {
     // Bring the stored challenge by id
     const challenge = this.$store.getters['challenges/getById'](this.id)

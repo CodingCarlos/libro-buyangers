@@ -9,6 +9,11 @@
 
 <script>
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  // middleware: 'auth',
+  layout: 'empty',
+  created () {
+    return this.$router.replace('/challenges')
+  }
 }
 </script>

@@ -55,6 +55,7 @@ function normalizeSearch (term) {
 
 export default {
   name: 'ChallengesPage',
+  middleware: 'auth',
   data: () => ({
     searchTerm: ''
   }),

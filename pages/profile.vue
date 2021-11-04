@@ -62,8 +62,8 @@
       <div class="text-center">
         <v-btn
           text
-          @click="$store.dispatch('auth/logout')"
           color="red"
+          @click="$store.dispatch('auth/logout')"
         >
           Cerrar sesión
         </v-btn>
@@ -81,17 +81,9 @@
 <script>
 export default {
   name: 'ProfilePage',
+  middleware: 'auth',
   async fetch () {
     await this.$store.dispatch('ranking/list')
-
-    const id = this.$store.state.auth.id
-
-    if (id) {
-      await this.$store.dispatch('complete/list', {
-        id,
-        col: 'users'
-      })
-    }
   },
   computed: {
     id () {
